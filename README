@@ -1,0 +1,23 @@
+# Agility
+
+This is the source code to accompany the [Agility gitorial for
+Hobo](http://cookbook.hobocentral.net/gitorials/agility).
+
+Agility is a simple "Agile Development" application – Agility. The
+application tracks projects which consist of a number of user
+stories. Stories have a status (e.g. accepted, under development…) as
+well as a number of associated tasks. Tasks can be assigned to users,
+and each user can see a heads-up of all the tasks they’ve been
+assigned to on their home page.
+
+To keep the gitorial clean, updates to the gitorial **rewrite
+history**.  That means that you cannot `git pull`.  If you wish to
+update to a later version, you must `git clone` the repository again
+and move any changes you have made from your old clone to the new one.
+
+The "real" history is kept in our [source
+repository](http://github.com/bryanlarsen/agility-gitorial-patches/tree/master).
+
+There is a [version of
+agility](http://github.com/tablatom/agility/tree/master) that is not
+in gitorial format.  This tree is mainly used for integration testing Hobo.
