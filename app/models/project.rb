@@ -7,6 +7,7 @@ class Project < ActiveRecord::Base
     timestamps
   end
 
+  has_many :stories, :dependent => :destroy
 
   # --- Permissions --- #
 

@@ -7,6 +7,10 @@ class Task < ActiveRecord::Base
     timestamps
   end
 
+  belongs_to :story
+
+  has_many :task_assignments, :dependent => :destroy
+  has_many :users, :through => :task_assignments
 
   # --- Permissions --- #
 

@@ -6,6 +6,8 @@ class TaskAssignment < ActiveRecord::Base
     timestamps
   end
 
+  belongs_to :user
+  belongs_to :task
 
   # --- Permissions --- #
 

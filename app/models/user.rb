@@ -11,6 +11,9 @@ class User < ActiveRecord::Base
 
   validates_presence_of :name
 
+  has_many :task_assignments, :dependent => :destroy
+  has_many :tasks, :through => :task_assignments
+
   # This gives admin rights to the first sign-up.
   # Just remove it if you don't want that
   before_create { |user| user.administrator = true if !Rails.env.test? && count == 0 }
