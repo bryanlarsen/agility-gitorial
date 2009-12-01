@@ -1,0 +1,10 @@
+tmp/*
+log/*.log
+db/*.sqlite3
+app/views/taglibs/auto
+db/data.yml
+patches-*/*
+.stgit-edit.txt
+vendor/plugins/hobo/*
+vendor/plugins/acts_as_list/*
+vendor/plugins/selenium-on-rails/*
