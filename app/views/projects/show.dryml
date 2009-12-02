@@ -1,0 +1,7 @@
+<show-page>
+  <collection: replace>
+  <table-plus:stories fields="this, status">
+    <empty-message:>No stories match your criteria</empty-message:>
+  </table-plus>
+  </collection:>
+</show-page>
