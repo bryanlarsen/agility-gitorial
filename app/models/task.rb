@@ -10,7 +10,7 @@ class Task < ActiveRecord::Base
   belongs_to :story
 
   has_many :task_assignments, :dependent => :destroy
-  has_many :users, :through => :task_assignments
+  has_many :users, :through => :task_assignments, :accessible => true, :dependent => :destroy
 
   # --- Permissions --- #
 
