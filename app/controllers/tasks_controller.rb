@@ -4,4 +4,6 @@ class TasksController < ApplicationController
 
   auto_actions :all, :except => :index
 
+  auto_actions_for :story, :create
+
 end
