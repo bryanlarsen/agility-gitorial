@@ -19,7 +19,7 @@ class Task < ActiveRecord::Base
   end
 
   def update_permitted?
-    acting_user.signed_up?
+    acting_user.signed_up? && !story_changed?
   end
 
   def destroy_permitted?
