@@ -1,6 +1,6 @@
 <show-page>
   <collection: replace>
-  <table-plus:stories fields="this, status">
+  <table-plus:stories fields="this, tasks.count, status">
     <empty-message:>No stories match your criteria</empty-message:>
   </table-plus>
   </collection:>
