@@ -22,15 +22,21 @@ class User < ActiveRecord::Base
   # --- Signup lifecycle --- #
 
   lifecycle do
-
-    state :active, :default => true
+    state :inactive, :default => true
+    state :active
 
     create :signup, :available_to => "Guest",
            :params => [:name, :email_address, :password, :password_confirmation],
-           :become => :active
-             
+           :become => :inactive, :new_key => true do
+      UserMailer.deliver_activation(self, lifecycle.key) unless email_address.blank?
+    end
+
     transition :request_password_reset, { :active => :active }, :new_key => true do
       UserMailer.deliver_forgot_password(self, lifecycle.key)
+    end
+
+    transition :request_password_reset, { :inactive => :inactive }, :new_key => true do
+      UserMailer.deliver_activation(self, lifecycle.key)
     end
 
     transition :reset_password, { :active => :active }, :available_to => :key_holder,
