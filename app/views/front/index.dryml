@@ -24,7 +24,7 @@
 
     <section class="content-body" if="&logged_in?">
       <h3>Your Projects</h3>
-      <collection:projects with="&current_user"/>
+      <collection:projects with="&current_user"><card without-creator-link/></collection>
     </section>
   </content:>
   
