@@ -1,0 +1,10 @@
+
+fr:
+  stories:
+    model_name: "Histoire"
+    status: "Statut"
+  tasks:
+    model_name: "Tâche"
+    collection:
+      empty_message: "Aucune tâche d'afficher"
+      front_title: "Vos Projets"
