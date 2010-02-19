@@ -9,6 +9,8 @@ class Project < ActiveRecord::Base
 
   has_many :stories, :dependent => :destroy
 
+  belongs_to :owner, :class_name => "User", :creator => true
+
   # --- Permissions --- #
 
   def create_permitted?
