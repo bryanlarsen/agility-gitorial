@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091201020837) do
+ActiveRecord::Schema.define(:version => 20091201134408) do
 
   create_table "projects", :force => true do |t|
     t.string   "name"
@@ -20,13 +20,20 @@ ActiveRecord::Schema.define(:version => 20091201020837) do
   create_table "stories", :force => true do |t|
     t.string   "title"
     t.text     "body"
-    t.string   "status"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "project_id"
+    t.integer  "status_id"
   end
 
   add_index "stories", ["project_id"], :name => "index_stories_on_project_id"
+  add_index "stories", ["status_id"], :name => "index_stories_on_status_id"
+
+  create_table "story_statuses", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "task_assignments", :force => true do |t|
     t.datetime "created_at"
@@ -57,7 +64,7 @@ ActiveRecord::Schema.define(:version => 20091201020837) do
     t.boolean  "administrator",                           :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "state",                                   :default => "active"
+    t.string   "state",                                   :default => "inactive"
     t.datetime "key_timestamp"
   end
 
