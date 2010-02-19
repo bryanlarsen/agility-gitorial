@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
 
   has_many :task_assignments, :dependent => :destroy
   has_many :tasks, :through => :task_assignments
+  has_many :projects, :class_name => "Project", :foreign_key => "owner_id"
 
   # This gives admin rights to the first sign-up.
   # Just remove it if you don't want that
