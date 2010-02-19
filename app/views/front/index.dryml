@@ -22,7 +22,9 @@
       </section>
     </header>
 
-    <section class="content-body">
+    <section class="content-body" if="&logged_in?">
+      <h3>Your Projects</h3>
+      <collection:projects with="&current_user"/>
     </section>
   </content:>
   
