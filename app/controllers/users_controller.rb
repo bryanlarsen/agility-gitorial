@@ -4,6 +4,8 @@ class UsersController < ApplicationController
 
   auto_actions :all, :except => [ :index, :new, :create ]
 
+  autocomplete
+
   def do_signup
     hobo_do_signup do
       if this.errors.blank?
