@@ -28,7 +28,7 @@ class Project < ActiveRecord::Base
   end
 
   def view_permitted?(field)
-    true
+    acting_user.administrator? || acting_user == owner || acting_user.in?(members)
   end
 
 end

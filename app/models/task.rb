@@ -29,7 +29,7 @@ class Task < ActiveRecord::Base
   end
 
   def view_permitted?(field)
-    true
+    story.viewable_by?(acting_user)
   end
 
 end
