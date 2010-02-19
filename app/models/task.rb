@@ -17,15 +17,15 @@ class Task < ActiveRecord::Base
   # --- Permissions --- #
 
   def create_permitted?
-    acting_user.administrator?
+    story.creatable_by?(acting_user)
   end
 
   def update_permitted?
-    acting_user.signed_up? && !story_changed?
+    story.updatable_by?(acting_user)
   end
 
   def destroy_permitted?
-    acting_user.administrator?
+    story.destroyable_by?(acting_user)
   end
 
   def view_permitted?(field)

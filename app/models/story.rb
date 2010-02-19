@@ -16,15 +16,15 @@ class Story < ActiveRecord::Base
   # --- Permissions --- #
 
   def create_permitted?
-    acting_user.administrator?
+    project.creatable_by?(acting_user)
   end
 
   def update_permitted?
-    acting_user.signed_up? && !project_changed?
+    project.updatable_by?(acting_user)
   end
 
   def destroy_permitted?
-    acting_user.administrator?
+    project.destroyable_by?(acting_user)
   end
 
   def view_permitted?(field)

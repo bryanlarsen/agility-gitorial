@@ -12,19 +12,19 @@ class TaskAssignment < ActiveRecord::Base
   # --- Permissions --- #
 
   def create_permitted?
-    acting_user.administrator?
+    task.creatable_by?(acting_user)
   end
 
   def update_permitted?
-    acting_user.administrator?
+    task.updatable_by?(acting_user)
   end
 
   def destroy_permitted?
-    acting_user.administrator?
+    task.destroyable_by?(acting_user)
   end
 
   def view_permitted?(field)
-    true
+    task.viewable_by?(acting_user)
   end
 
 end
