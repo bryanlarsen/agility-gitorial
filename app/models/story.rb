@@ -5,11 +5,11 @@ class Story < ActiveRecord::Base
   fields do
     title  :string
     body   :text
-    status enum_string(:new, :accepted, :discussion, :implementation)
     timestamps
   end
 
   belongs_to :project
+  belongs_to :status, :class_name => "StoryStatus"
 
   has_many :tasks, :dependent => :destroy
 
