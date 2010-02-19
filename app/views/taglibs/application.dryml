@@ -23,3 +23,13 @@
     <field-list: fields="description, users"/>
   </old-form>
 </extend>
+
+<extend tag="card" for="ProjectMembership">
+  <old-card merge>
+    <body:>
+      <span>Contributor?</span>
+      <editor:contributor/>
+    </body:>
+  </old-card>
+</extend>
+

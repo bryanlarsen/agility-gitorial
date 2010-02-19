@@ -13,6 +13,14 @@ class Project < ActiveRecord::Base
 
   belongs_to :owner, :class_name => "User", :creator => true
 
+  has_many :contributor_memberships, :class_name => "ProjectMembership", :scope => :contributor
+  has_many :contributors, :through => :contributor_memberships, :source => :user
+
+  # permission helper
+  def accepts_changes_from?(user)
+    user.administrator? || user == owner || user.in?(contributors)
+  end
+  
   # --- Permissions --- #
 
   def create_permitted?
@@ -20,7 +28,7 @@ class Project < ActiveRecord::Base
   end
 
   def update_permitted?
-    acting_user.administrator? || (owner_is?(acting_user) && !owner_changed?)
+    accepts_changes_from?(acting_user) && !owner_changed?
   end
 
   def destroy_permitted?
