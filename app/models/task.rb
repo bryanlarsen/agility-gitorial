@@ -12,6 +12,8 @@ class Task < ActiveRecord::Base
   has_many :task_assignments, :dependent => :destroy
   has_many :users, :through => :task_assignments, :accessible => true, :dependent => :destroy
 
+  acts_as_list :scope => :story
+
   # --- Permissions --- #
 
   def create_permitted?
