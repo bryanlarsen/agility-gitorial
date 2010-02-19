@@ -23,7 +23,7 @@
     </header>
 
     <section with="&current_user" class="content-body" if="&logged_in?">
-      <h3>Your Projects</h3>
+      <h3><ht key="projects.collection.front_title">Your Projects</ht></h3>
       <collection:projects><card without-creator-link/></collection>
 
       <a:projects action="new">New Project</a>
